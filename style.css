@@ -1,0 +1,15 @@
+/* global styles */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* header */
+
+header {
+    border-bottom: solid black 1px;
+    background-color: rgb(219, 218, 218);
+    text-align: center;
+    padding: 1em;
+}
