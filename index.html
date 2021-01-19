@@ -17,11 +17,21 @@
         <p class="lead">Choose a City!</p>
     </header>
     <div id="main">
-        <div id="searchinput">
-            <h4></h4>
+        <div id="searchinput" class="">
+            <label id="citylabel" for="cityname">City, State/Country</label>
+            <input type="text" name="cityname" id="city"> 
+            <button class="btn btn-success" id="submit">Get Forecast</button>
+            <ul id='searchhistory'>
+                <li><a>example</a></li>
+            </ul>           
         </div>
         <div id="results">
+            <div id="weather">
+                
+            </div>
+            <div id="forecast">
 
+            </div>
         </div>
     </div>
     <footer>
