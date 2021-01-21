@@ -97,3 +97,7 @@ header {
     background-color: lavender;
     padding: 1em;
 }
+
+#forecast p{
+    font-weight: bold;
+}
