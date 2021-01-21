@@ -93,6 +93,12 @@ header {
     font-weight: bold;
 }
 
+#current h5 {
+    text-decoration: underline;
+    letter-spacing: 2px;
+    margin-bottom: 1em;
+}
+
 #forecast {
     background-color: lavender;
     padding: 1em;
