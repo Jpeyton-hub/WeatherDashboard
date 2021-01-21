@@ -1,5 +1,5 @@
 const apiKey = '3f2fb54412fdff446633a41487bb3d44';
-
+let weatherDiv = $('#weather');
 
 const searchBtn = $('#submit');
 
@@ -12,7 +12,13 @@ function getWeather() {
         url: queryURL,
         method: 'GET'
     }).then(function(response){
-        let weatherDiv = $('#weather')
+        console.log(response)        
+        let temp = response.main.temp + '°F';
+        let humid = response.main.humidity + '%';
+        let wind = response.wind.speed + 'mph';
+        let lat = response.coord.lat;
+        let lon = response.coord.lon;
+        
     })
 }
 
