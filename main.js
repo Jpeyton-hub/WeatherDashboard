@@ -12,7 +12,7 @@ function getWeather() {
         url: queryURL,
         method: 'GET'
     }).then(function(response){
-        console.log(response)
+        let weatherDiv = $('#weather')
     })
 }
 
