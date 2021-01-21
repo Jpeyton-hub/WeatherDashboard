@@ -13,12 +13,16 @@ function getWeather() {
         method: 'GET'
     }).then(function(response){
         console.log(response)        
-        let temp = response.main.temp + '°F';
-        let humid = response.main.humidity + '%';
-        let wind = response.wind.speed + 'mph';
+        let temp = 'Temperature: ' + response.main.temp + '°F';
+        let humid = 'Humidity: ' + response.main.humidity + '%';
+        let wind = 'Windspeed: ' + response.wind.speed + 'mph';
         let lat = response.coord.lat;
-        let lon = response.coord.lon;
-        
+        let lon = response.coord.lon;        
+        let infoArr = [temp, humid, wind];
+        for (let i = 0; i < infoArr.length; i++) {
+            let info = $('<p>').text(infoArr[i]);
+            weatherDiv.append(info);
+        };
     })
 }
 
