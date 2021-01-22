@@ -123,6 +123,11 @@ clearBtn.click(function(){
     $('#searchhistory').empty();
 });
 
+$('a').click(function(){
+    let linktext = $(this).text();
+    getWeather(linktext);
+});
+
 
 
 
