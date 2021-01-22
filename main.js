@@ -1,7 +1,7 @@
 const apiKey = '3f2fb54412fdff446633a41487bb3d44';
 let weatherDiv = $('#current');
 const searchBtn = $('#submit');
-
+let futureDiv = $('#future');
 
 function getWeather() {
     let city = $('#cityname').val();
@@ -33,7 +33,7 @@ function getWeather() {
             let destTime = utc + (1000 * response.timezone_offset);
             let convertedDestTime = new Date(destTime);
             let localTime = convertedDestTime.toLocaleString('en-US');
-            let temp = 'Temperature: ' + response.current.temp + '°F';
+            let temp = 'Temperature: ' + response.current.temp + ' °F';
             let humid = 'Humidity: ' + response.current.humidity + '%';
             let wind = 'Windspeed: ' + response.current.wind_speed + 'mph';
             let uv = 'UV Index: ' + response.current.uvi;
@@ -44,7 +44,21 @@ function getWeather() {
                 weatherDiv.append(info);
             };
             //datadump for forecast
-            
+            //date, icon temperature, humidity, temp
+            let dailyArr = response.daily;
+            for (i = 1; i < 6; i++) {
+                let date = new Date(dailyArr[i].dt * 1000);
+                let temperature = 'Temp: ' + dailyArr[i].temp.day + ' °F';
+                let humidity = 'Humidity: ' + dailyArr[i].humidity + '%';
+                let condIcon = dailyArr[i].weather[0].icon;
+                let dataArr = [date, temperature, humidity, condIcon];
+                let lineBreak = $('<hr>');
+                for (let i = 0; i < dataArr.length; i++) {
+                    let data = $('<p>').text(dataArr[i])
+                    futureDiv.append(data);
+                }
+                futureDiv.append(lineBreak);
+            };
         })
     })
 }
