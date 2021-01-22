@@ -77,6 +77,17 @@ function getWeather(city) {
     })
 }
 
+function pullHistory() {
+    //for loop to append each search history as a clickable link
+    $('#searchhistory').empty();
+    let histArr = JSON.parse(localStorage.getItem('weatherhist'));
+    for (let i = 0; i < histArr.length; i++) {
+        let histLink = $('<a>').text(histArr[i])
+                               .attr('href', '#');                               
+        $('#searchhistory').append(histLink);
+    }
+};
+
 searchBtn.click(function(e){
     e.preventDefault();
     getWeather($('#cityname').val());
@@ -88,5 +99,6 @@ searchBtn.click(function(e){
         newHist.unshift($('#cityname').val());
         localStorage.setItem('weatherhist', JSON.stringify(newHist))
     }
-    
-})
+    pullHistory();
+});
+

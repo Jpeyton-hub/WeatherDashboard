@@ -56,7 +56,7 @@ header {
     margin-right: 70px;
 }
 
-#searchhistory li a{
+#searchhistory a{
     color: black;
     text-decoration: none;
     transition: .3s;
@@ -64,9 +64,10 @@ header {
     padding: 2px 5px;
     border-radius: 3px;
     background-color: rgb(255, 255, 255);
+    margin-right: 4px;
 }
 
-#searchhistory li a:hover {
+#searchhistory a:hover {
     letter-spacing: 2px;
     cursor: pointer;
 }
@@ -119,3 +120,4 @@ header {
 #forecast p{
     font-weight: bold;
 }
+
