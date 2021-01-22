@@ -93,6 +93,18 @@ header {
     font-weight: bold;
 }
 
+.low {
+    color: green;
+}
+
+.med {
+    color: rgb(221, 221, 20);
+}
+
+.high {
+    color: red;
+}
+
 #current h5 {
     text-decoration: underline;
     letter-spacing: 2px;

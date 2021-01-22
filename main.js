@@ -39,13 +39,22 @@ function getWeather() {
             let uv = 'UV Index: ' + response.current.uvi;
             let iconId = response.current.weather[0].icon;
             let icon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + iconId + '@2x.png')
-            let infoArr = [localTime, temp, humid, wind, uv];
+            let infoArr = [localTime, temp, humid, wind];
             //for loop to append current conditions to weather div
             for (let i = 0; i < infoArr.length; i++) {
                 let info = $('<p>').text(infoArr[i]);
                 weatherDiv.append(info);
             };
+            let uvp = $('<p>').attr('class', 'uvp').text(uv);
+            weatherDiv.append(uvp); 
             weatherDiv.append(icon);
+            if (response.current.uvi > 0 || response.current.uvi <= 2) {
+                $('.uvp').addClass('low');
+            } else if (response.current.uvi > 2 || response.current.uvi <= 5) {
+                $('.uvp').addClass('med');
+            } else {
+                $('.uvp').addClass('high');
+            }
             //datadump for forecast
             //date, icon temperature, humidity, temp
             let dailyArr = response.daily;
