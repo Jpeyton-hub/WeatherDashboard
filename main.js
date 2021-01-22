@@ -37,12 +37,15 @@ function getWeather() {
             let humid = 'Humidity: ' + response.current.humidity + '%';
             let wind = 'Windspeed: ' + response.current.wind_speed + 'mph';
             let uv = 'UV Index: ' + response.current.uvi;
+            let iconId = response.current.weather[0].icon;
+            let icon = $('<img>').attr('src', 'http://openweathermap.org/img/wn/' + iconId + '@2x.png')
             let infoArr = [localTime, temp, humid, wind, uv];
             //for loop to append current conditions to weather div
             for (let i = 0; i < infoArr.length; i++) {
                 let info = $('<p>').text(infoArr[i]);
                 weatherDiv.append(info);
             };
+            weatherDiv.append(icon);
             //datadump for forecast
             //date, icon temperature, humidity, temp
             let dailyArr = response.daily;
@@ -51,12 +54,14 @@ function getWeather() {
                 let temperature = 'Temp: High ' + dailyArr[i].temp.min + ' °F - Low ' + dailyArr[i].temp.max + ' °F';
                 let humidity = 'Humidity: ' + dailyArr[i].humidity + '%';
                 let condIcon = dailyArr[i].weather[0].icon;
-                let dataArr = [date, temperature, humidity, condIcon];
+                let dataArr = [date, temperature, humidity];
+                let iconImg = $('<img>').attr('src', ' http://openweathermap.org/img/wn/' + condIcon + '@2x.png')
                 let lineBreak = $('<hr>');
                 for (let i = 0; i < dataArr.length; i++) {
                     let data = $('<p>').text(dataArr[i])
                     futureDiv.append(data);
                 }
+                futureDiv.append(iconImg);
                 futureDiv.append(lineBreak);
             };
         })
