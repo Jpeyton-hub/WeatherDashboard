@@ -46,11 +46,14 @@ header {
 }
 
 #submit:hover {
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     transition: .3s;
 }
 
 #searchhistory {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4px;
     list-style: none;
     margin-top: 1em;
     margin-right: 70px;
@@ -64,12 +67,18 @@ header {
     padding: 2px 5px;
     border-radius: 3px;
     background-color: rgb(255, 255, 255);
-    margin-right: 4px;
+    
 }
 
 #searchhistory a:hover {
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     cursor: pointer;
+    text-decoration: underline;
+}
+
+#clearhistory:hover {
+    letter-spacing: 1px;
+    transition: .3s;
 }
 
 /* results div */

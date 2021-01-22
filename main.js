@@ -2,6 +2,8 @@ const apiKey = '3f2fb54412fdff446633a41487bb3d44';
 let weatherDiv = $('#current');
 const searchBtn = $('#submit');
 let futureDiv = $('#future');
+const clearBtn = $('#clearhistory')
+
 
 function getWeather(city) {
     
@@ -57,6 +59,7 @@ function getWeather(city) {
             }
             //datadump for forecast
             //date, icon temperature, humidity, temp
+            futureDiv.empty();
             let dailyArr = response.daily;
             for (i = 1; i < 6; i++) {
                 let date = new Date(dailyArr[i].dt * 1000).toLocaleDateString('en-US');
@@ -109,8 +112,17 @@ function populateMostRecent() {
         let recentArr = JSON.parse(localStorage.getItem('weatherhist'));
         let recent = recentArr[0];
         getWeather(recent);
-    }
+    };
+    pullHistory();
 };
 
 populateMostRecent();
+
+clearBtn.click(function(){
+    localStorage.removeItem('weatherhist');
+    $('#searchhistory').empty();
+});
+
+
+
 
