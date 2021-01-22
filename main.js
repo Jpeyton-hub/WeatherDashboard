@@ -47,8 +47,8 @@ function getWeather() {
             //date, icon temperature, humidity, temp
             let dailyArr = response.daily;
             for (i = 1; i < 6; i++) {
-                let date = new Date(dailyArr[i].dt * 1000);
-                let temperature = 'Temp: ' + dailyArr[i].temp.day + ' °F';
+                let date = new Date(dailyArr[i].dt * 1000).toLocaleString('en-US');
+                let temperature = 'Temp: High ' + dailyArr[i].temp.min + ' °F - Low ' + dailyArr[i].temp.max + ' °F';
                 let humidity = 'Humidity: ' + dailyArr[i].humidity + '%';
                 let condIcon = dailyArr[i].weather[0].icon;
                 let dataArr = [date, temperature, humidity, condIcon];
