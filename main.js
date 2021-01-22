@@ -84,7 +84,7 @@ function pullHistory() {
     for (let i = 0; i < histArr.length; i++) {
         let histLink = $('<a>').text(histArr[i])
                                .attr('href', '#');                               
-        $('#searchhistory').append(histLink);
+        $('#searchhistory').prepend(histLink);
     }
 };
 
@@ -101,4 +101,16 @@ searchBtn.click(function(e){
     }
     pullHistory();
 });
+
+function populateMostRecent() {
+    if (localStorage.getItem('weatherhist') == null) {
+        return
+    } else {
+        let recentArr = JSON.parse(localStorage.getItem('weatherhist'));
+        let recent = recentArr[0];
+        getWeather(recent);
+    }
+};
+
+populateMostRecent();
 
