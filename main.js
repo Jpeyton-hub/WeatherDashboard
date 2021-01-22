@@ -3,8 +3,8 @@ let weatherDiv = $('#current');
 const searchBtn = $('#submit');
 let futureDiv = $('#future');
 
-function getWeather() {
-    let city = $('#cityname').val();
+function getWeather(city) {
+    
     let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
      city + "&units=imperial&appid=" + apiKey;
     $.ajax({
@@ -59,7 +59,7 @@ function getWeather() {
             //date, icon temperature, humidity, temp
             let dailyArr = response.daily;
             for (i = 1; i < 6; i++) {
-                let date = new Date(dailyArr[i].dt * 1000).toLocaleString('en-US');
+                let date = new Date(dailyArr[i].dt * 1000).toLocaleDateString('en-US');
                 let temperature = 'Temp: Low ' + dailyArr[i].temp.min + ' °F - High ' + dailyArr[i].temp.max + ' °F';
                 let humidity = 'Humidity: ' + dailyArr[i].humidity + '%';
                 let condIcon = dailyArr[i].weather[0].icon;
@@ -79,5 +79,14 @@ function getWeather() {
 
 searchBtn.click(function(e){
     e.preventDefault();
-    getWeather();   
+    getWeather($('#cityname').val());
+    //next we store the search history in localStorage
+    if (localStorage.getItem('weatherhist') == null) {
+        localStorage.setItem('weatherhist', JSON.stringify([$('#cityname').val()]));
+    } else {
+        let newHist = JSON.parse(localStorage.getItem('weatherhist'));
+        newHist.unshift($('#cityname').val());
+        localStorage.setItem('weatherhist', JSON.stringify(newHist))
+    }
+    
 })
