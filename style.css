@@ -130,3 +130,11 @@ header {
     font-weight: bold;
 }
 
+/* footer styles */
+
+footer {
+    background-color:  rgb(219, 218, 218);
+    margin-bottom: 0;
+    height: 50px;
+    padding: 1em;
+}
