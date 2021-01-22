@@ -34,13 +34,13 @@ header {
     width: 100%;
 }
 
-#city {
-    width: 80%;
+#cityname {
+    width: 70%;
 }
 
 #submit {
     margin-top: 1em;
-    width: 50%;
+    width: 40%;
     transition: .3s;
     border-radius: 20px;
 }
