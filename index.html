@@ -1,68 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Weather Dashboard</title>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-
+  <body>
     <header>
-        <h2 id="title">Current Weather Conditions</h2>
-        <p class="lead">Choose a City!</p>
+      <h2 id="title">Current Weather Conditions</h2>
+      <p class="lead">Choose a City!</p>
     </header>
     <div id="main">
-        <div id="searchinput">
+      <div id="searchinput">
+        <form>
+          <label id="citylabel" for="cityname">City, State/Country</label>
+          <input
+            type="text"
+            name="cityname"
+            id="cityname"
+            placeholder="Search..."
+          />
+          <button class="btn btn-success" type="submit" id="submit">Get Weather</button>
 
-            <label id="citylabel" for="cityname">City, State/Country</label>
-            <input type="text" name="cityname" id="cityname" placeholder="Search...">
-            <button class="btn btn-success" id="submit">Get Weather</button>
-
-            <ul id='searchhistory'>
-                
-            </ul>
-            <hr>
-            <button id="clearhistory" class="btn btn-danger">Clear Search History</button>
+          <ul id="searchhistory"></ul>
+          <hr />
+          <button id="clearhistory" class="btn btn-danger">
+            Clear Search History
+          </button>
+        </form>
+      </div>
+      <div id="results">
+        <div id="weather">
+          <h4>Current Conditions</h4>
+          <hr />
+          <div id="current"></div>
         </div>
-        <div id="results">
-            <div id="weather">
-                <h4>Current Conditions</h4>
-                <hr>
-                <div id="current">
-
-                </div>
-            </div>
-            <div id="forecast">
-                <h4>Forecast</h4>
-                <hr>
-                <div id="future">
-
-                </div>
-            </div>
+        <div id="forecast">
+          <h4>Forecast</h4>
+          <hr />
+          <div id="future"></div>
         </div>
+      </div>
     </div>
     <footer>
-       <p>Powered by <a href="openweathermap.org">Open Weather Map!</a></p> 
+      <p>Powered by <a href="openweathermap.org">Open Weather Map!</a></p>
     </footer>
 
-
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
     <script src="main.js"></script>
-</body>
-
+  </body>
 </html>
